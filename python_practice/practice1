@@ -1,0 +1,44 @@
+import json
+from tkinter import N
+from collections import OrderedDict
+from pprint import pprint #json을 좀 더 보기 편하게 출력
+
+
+
+with open('/Users/jangjiwan/Downloads/sample.json', 'r') as f:
+
+    dict = json.load(f)
+    
+
+
+outZ5003 =  dict["outJson"]["outZ5003"]
+for fullData in outZ5003:
+    for out in fullData["fullData"]:
+        if out["frmlNm"] =="종합소득세ㆍ농어촌특별세ㆍ(지방소득세) 과세표준확정신고 및 납부계산서":
+            address = out["out"]["data"]["ntplBscInfrInqrDVO"]["ldAdr"]         
+print(address)
+
+
+
+outZ5003 =  dict["outJson"]["outZ5003"]
+for fullData in outZ5003:
+    for out in fullData["fullData"]:
+        if out["frmlNm"] =="세액공제명세서":
+            for rows in out["out"]["data"]["txamtDdcReSpecBrkdDVOList"]["rows"]:
+                if rows["ereBssStttText"] == "특별세액공제 보장성보험":
+                    address2 = rows["ereAmt"]
+                    print(address2)
+
+                   
+
+
+                
+
+    #  print(rows)
+
+#             if out["ereBssStttText"]=="특별세액공제 보장성보험":
+#               address2=["out"]["data"]["txamtDdcReSpecBrkdDVOList"]["rows"]["ereAmt"]
+
+                 
+
+
