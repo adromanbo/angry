@@ -22,12 +22,6 @@ with open('/Users/jangjiwan/Downloads/sample.json2.txt', 'w',newline="") as outp
                      SSN= rows["resFrgrNo"]
                      print(name, SSN)
                      f.writerow([name,SSN])
- 
-
-
-
-
-
 
 
 # name=[]
